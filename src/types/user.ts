@@ -11,6 +11,7 @@ enum Skills {
 }
 
 
+// create interface for user model and export it to be used in other files
 export interface IUser extends Document {
     name: string;
     email: string;

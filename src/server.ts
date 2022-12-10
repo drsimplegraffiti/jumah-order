@@ -4,7 +4,6 @@ import cors from 'cors';
 import { connectDatabase } from './database/database';
 import productRouter from './routes/product';
 import userRouter from './routes/user';
-import logger from './log/logger';
 import helmet from 'helmet';
 import compression from 'compression';
 import { errorHandler, notFound } from './errors/errors-handler';
@@ -43,3 +42,6 @@ app.use(errorHandler);
 
 
 export default app;
+
+
+

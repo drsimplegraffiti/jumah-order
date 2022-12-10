@@ -55,7 +55,6 @@ const addProduct = async (req: Request, res: Response, next: NextFunction): Prom
             return;
         }
 
-        console.log({ imagesUrls })
 
         const product: IProduct = new Product({
             name: body.name,
@@ -113,7 +112,7 @@ const updateProduct = async (req: Request, res: Response, next: NextFunction): P
             { new: true }
         );
 
-        const allProducts: IProduct[] = await Product.find();
+        const allProducts: IProduct[] = await Product.find(); // IProduct[] is an array of IProduct objects
 
         res.status(200).json({
             message: "Product updated",
@@ -125,7 +124,7 @@ const updateProduct = async (req: Request, res: Response, next: NextFunction): P
 
     } catch (error) {
         console.log(error);
-        next(error);
+        next(error);  // <--- next is a function that will pass the error to the error handler middleware in the main entry point of the application
     }
 };
 

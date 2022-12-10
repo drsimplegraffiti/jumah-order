@@ -163,3 +163,5 @@ Pass in the token gotten from the email into the params e.g
     "password":"mimiyomi"
 }
 ```
+
+

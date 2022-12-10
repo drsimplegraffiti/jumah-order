@@ -9,11 +9,11 @@ const jwt = require('jsonwebtoken');
 
 let refreshTokens: string[] = [];
 
-const registerUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const registerUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {  // <--- Notice the return type of Promise<void> which means that this function will return a promise that will resolve to void (nothing)
     try {
-        const body = req.body as Pick<IUser, 'name' | 'email' | 'password' | 'skills' | 'profile'>;
+        const body = req.body as Pick<IUser, 'name' | 'email' | 'password' | 'skills' | 'profile'>;  // <--- Pick is a generic type that allows you to select which properties you want to use from the IUser interface
 
-        if (!(body.name && body.email && body.password)) {
+        if (!(body.name && body.email && body.password)) {                  // <--- Notice the use of the "!" operator to check if the body.name, body.email and body.password are not undefined
             res.status(400).json({ message: 'All fields are required' });
             return;
         }
@@ -42,7 +42,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction): Pr
         const hashedPassword = await bcrypt.hash(body.password, salt);
 
 
-        const user: IUser = new User({
+        const user: IUser = new User({  // <--- user:IUser is a type annotation that tells TypeScript that the user variable is of type IUser
             name: body.name,
             email: body.email,
             password: hashedPassword,
@@ -221,7 +221,7 @@ const resetPassword = async (
 ): Promise<void> => {
     const { password } = req.body;
 
-    const resetPasswordToken = crypto.createHash("sha256")
+    const resetPasswordToken = crypto.createHash("sha256")  
         .update(req.params.resetToken)
         .digest('hex');
 
@@ -244,7 +244,7 @@ const resetPassword = async (
 
 
         user.password = hashedPassword;
-        user.resetPasswordToken = "";
+        user.resetPasswordToken = "";  // clear the resetPasswordToken and resetPasswordExpire fields
         user.resetPasswordExpire = "";
         await user.save();
         res.status(201)
