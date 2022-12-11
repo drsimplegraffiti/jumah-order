@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
+
 let refreshTokens: string[] = [];
 
 const registerUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {  // <--- Notice the return type of Promise<void> which means that this function will return a promise that will resolve to void (nothing)
@@ -79,7 +80,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction): Pr
 
 
         res.status(201).json({ token, refreshToken });
-    
+
     } catch (error) {
         next(error);
     }
@@ -221,7 +222,7 @@ const resetPassword = async (
 ): Promise<void> => {
     const { password } = req.body;
 
-    const resetPasswordToken = crypto.createHash("sha256")  
+    const resetPasswordToken = crypto.createHash("sha256")
         .update(req.params.resetToken)
         .digest('hex');
 
