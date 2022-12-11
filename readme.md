@@ -42,7 +42,7 @@ module.exports = {
 
 ---
 
-### Add .prettierc  file -> Formatting with Prettier
+### Add .prettierc  file -> Formatting with Prettier.
 ```js
 module.exports =  {
   semi: true,
