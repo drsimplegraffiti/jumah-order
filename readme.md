@@ -68,6 +68,22 @@ module.exports =  {
 
 ---
 
+
+#### Husky configuration
+> npx husky-init && yarn  
+
+It will setup husky, modify package.json and create a sample pre-commit hook that you can edit. By default, it will run npm test when you commit.
+
+To add another hook use husky add.
+e.g  
+`npx husky add .husky/pre-commit "yarn eslint:fix"`
+`npx husky add .husky/pre-push "yarn test"`
+`npx husky add .husky/pre-commit echo "Using husky"`
+`npx husky add .husky/post-commit `
+`npx husky add .husky/post-merge "yarn install"`
+
+
+
 #### Add products
 > GET http://localhost4545/api/v1/products
 ```json

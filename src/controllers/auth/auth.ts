@@ -75,7 +75,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction): Pr
             html: `<p>Welcome to the app, ${newUser.name}. Let me know how you get along with the app.</p>`
         }
 
-        await sendEmail(options);
+        // await sendEmail(options);
 
 
 

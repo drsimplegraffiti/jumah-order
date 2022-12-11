@@ -30,22 +30,26 @@ describe('GET /api/v1/products', () => {
 });
 
 
-// user signup using async await
+// user signup using async await , import the sendEmail function from the mailer.ts file
 describe('POST /api/v1/users/register', () => {
-    it('should return 201 created', async () => {
-        const res = await request(server)
+    it('should return 201 OK', (done) => {
+        request(server)
             .post('/api/v1/users/register')
             .send({
-                name: 'test',
+                name: 'Abayomi Oguns',
                 email: 'abayomiogunnusi@gmail.com',
                 password: '123456',
-            })
+            })  
             .set('Accept', 'application/json')
-            .expect(201);
-        expect(res.body).toHaveProperty('token');
-        expect(res.body).toHaveProperty('refreshToken');
+            .expect(201)
+            .end((err, res) => {
+                if (err) return done(err);
+                done();
+            });
     });
 });
+
+
 
 
 describe('POST /api/v1/users/login', () => {
