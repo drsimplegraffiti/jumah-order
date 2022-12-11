@@ -167,7 +167,7 @@ Pass in the token gotten from the email into the params e.g
 
 ---
 
-### eslint config
+### Linting with ESLint -> eslint config
 > yarn add -D eslint eslint-config-prettier eslint-plugin-prettier
 @typescript-eslint/eslint-plugin @typescript-eslint/parser
 
@@ -199,7 +199,7 @@ module.exports = {
 
 ---
 
-### Add .prettierc  file
+### Add .prettierc  file -> Formatting with Prettier
 ```js
 module.exports =  {
   semi: true,
