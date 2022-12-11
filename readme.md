@@ -7,6 +7,65 @@
 > yarn add --dev ts-jest
 
 
+
+---
+
+### Linting with ESLint -> eslint config
+> yarn add -D eslint eslint-config-prettier eslint-plugin-prettier
+@typescript-eslint/eslint-plugin @typescript-eslint/parser
+
+In eslintrc.js
+```js
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  extends: ['plugin:@typescript-eslint/recommended', 'prettier/@typescript-eslint', 'plugin:prettier/recommended'],
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
+  env: {
+    es6: true,
+    node: true,
+  },
+  rules: {
+    'no-var': 'error',
+    semi: 'error',
+    indent: ['error', 2, { SwitchCase: 1 }],
+    'no-multi-spaces': 'error',
+    'space-in-parens': 'error',
+    'no-multiple-empty-lines': 'error',
+    'prefer-const': 'error',
+  },
+};
+```
+
+
+---
+
+### Add .prettierc  file -> Formatting with Prettier
+```js
+module.exports =  {
+  semi: true,
+  trailingComma: 'all',
+  singleQuote: true,
+  printWidth: 150,
+  tabWidth: 2,
+};
+```
+
+
+---
+
+#### Run the scripts
+```json
+"scripts": {
+  "eslint:fix": "eslint --fix",
+ }
+ ```
+
+
+ Run the script using `yarn run eslint --fix`
+
 ---
 
 #### Add products
@@ -166,59 +225,3 @@ Pass in the token gotten from the email into the params e.g
 
 
 ---
-
-### Linting with ESLint -> eslint config
-> yarn add -D eslint eslint-config-prettier eslint-plugin-prettier
-@typescript-eslint/eslint-plugin @typescript-eslint/parser
-
-In eslintrc.js
-```js
-module.exports = {
-  parser: '@typescript-eslint/parser',
-  extends: ['plugin:@typescript-eslint/recommended', 'prettier/@typescript-eslint', 'plugin:prettier/recommended'],
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-  },
-  env: {
-    es6: true,
-    node: true,
-  },
-  rules: {
-    'no-var': 'error',
-    semi: 'error',
-    indent: ['error', 2, { SwitchCase: 1 }],
-    'no-multi-spaces': 'error',
-    'space-in-parens': 'error',
-    'no-multiple-empty-lines': 'error',
-    'prefer-const': 'error',
-  },
-};
-```
-
-
----
-
-### Add .prettierc  file -> Formatting with Prettier
-```js
-module.exports =  {
-  semi: true,
-  trailingComma: 'all',
-  singleQuote: true,
-  printWidth: 150,
-  tabWidth: 2,
-};
-```
-
-
----
-
-#### Run the scripts
-```json
-"scripts": {
-  "eslint:fix": "eslint --fix",
- }
- ```
-
-
- Run the script using `yarn run eslint --fix`
