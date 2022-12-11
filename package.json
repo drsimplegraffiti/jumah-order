@@ -12,8 +12,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run eslint:fix"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "@types/pino-pretty": "^5.0.0",
