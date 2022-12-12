@@ -1,8 +1,8 @@
- Configure typescript
+##### Configure typescript
 > tsc --init
 
 
-#### Jest config
+##### Jest config
 > yarn global add jest
 
 > yarn add --dev ts-jest
@@ -11,20 +11,25 @@
 ---
 
 
-#### Docker compose
-Docker compose in detached mode
-
-docker-compose up -d
+##### Docker compose
+> Docker compose in detached mode - docker-compose up -d
 
 
 Remove all running containers
 > docker-compose down --rmi all --volumes --remove-orphans
 
+or
+
+> docker-compose down -v --remove-orphans
+
+
+##### Check all running containers
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a2dy7cb5p1nosntovzis.png)
+
 ---
 
-### Linting with ESLint -> eslint config
-> yarn add -D eslint eslint-config-prettier eslint-plugin-prettier
-@typescript-eslint/eslint-plugin @typescript-eslint/parser
+##### Linting with ESLint -> eslint config
+> yarn add -D eslint eslint-config-prettier eslint-plugin-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser
 
 In eslintrc.js
 ```js
@@ -54,7 +59,7 @@ module.exports = {
 
 ---
 
-### Add .prettierc  file -> Formatting with Prettier.
+##### Add .prettierc  file - Formatting with Prettier.
 ```js
 module.exports =  {
   semi: true,
@@ -68,7 +73,7 @@ module.exports =  {
 
 ---
 
-#### Run the scripts
+##### Run the scripts
 ```json
 "scripts": {
   "eslint:fix": "eslint --fix",
@@ -81,7 +86,7 @@ module.exports =  {
 ---
 
 
-#### Husky configuration
+##### Husky configuration
 > npx husky-init && yarn  
 
 It will setup husky, modify package.json and create a sample pre-commit hook that you can edit. By default, it will run npm test when you commit.
@@ -96,7 +101,10 @@ e.g
 
 
 
-#### Add products
+---
+
+### Endpoints
+##### Add products
 > GET http://localhost4545/api/v1/products
 ```json
 "name":"mac",
