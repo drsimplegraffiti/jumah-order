@@ -1,9 +1,12 @@
-import * as mongoose from 'mongoose';
+import * as mongoose from "mongoose";
+
 
 mongoose.set('strictQuery', true);
 export let connectDatabase = async () => {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/ecommerce');  // <--- change this to your database name and use environment variables
+        let db_url = process.env.MONGO_URI;
+        // @ts-ignore
+        await mongoose.connect(db_url);  // <--- change this to your database name and use environment variables
         console.log('Database connected');
     } catch (error) {
         console.log('Database connection error');

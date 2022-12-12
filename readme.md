@@ -4,9 +4,21 @@
 
 #### Jest config
 > yarn global add jest
+
 > yarn add --dev ts-jest
 
 
+---
+
+
+#### Docker compose
+Docker compose in detached mode
+
+docker-compose up -d
+
+
+Remove all running containers
+> docker-compose down --rmi all --volumes --remove-orphans
 
 ---
 
